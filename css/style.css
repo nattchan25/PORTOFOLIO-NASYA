@@ -1,0 +1,532 @@
+/* ========== GLOBAL ========== */
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;       /* ukuran standar */
+  line-height: 1.6;      /* biar enak dibaca */
+  color: #333;           /* warna teks utama */
+  background-color: #fff; /* warna latar */
+  margin: 0;
+  padding: 0;
+}
+.content {
+  transition: margin-left 0.3s ease;
+}
+/* ========== HEADER ========== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #ffffff; /* penting biar nggak transparan */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* bayangan tipis */
+  z-index: 1000; /* biar nggak ketutup konten lain */
+}
+
+.logo {
+  height: 64px;
+  width: 64px;
+  background-image: url('./Revou.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+}
+
+.nav a {
+  border: 1px solid #FFD54F;
+  border-radius: 4px;
+  padding: 4px 8px;
+  text-decoration: none;
+  color: #5D4037;
+  background-color: #FAFAFA;
+}
+
+.nav a:hover {
+  background-color: #FAFAFA;
+  color: #d81b60;
+}
+
+/* ========== FORM ========== */
+form {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #FFD54F;
+  border-radius: 8px;
+  background: #FAFAFA;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+form label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #FFD54F;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #FAFAFA;
+}
+
+.radio-group {
+  display: flex;
+  gap: 10px;
+}
+
+button[type="submit"] {
+  background-color: #FFD54F;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #FFC107;
+}
+
+#error {
+  color: #d32f2f;
+  margin-top: 10px;
+}
+
+#success {
+  color: #388e3c;
+  margin-top: 10px;
+}
+
+#hasil {
+  border: 1px solid #FFD54F;
+  padding: 10px;
+  min-width: 200px;
+  text-align: left;
+  background-color: #FAFAFA;
+}
+
+/* ========== SLIDER ========== */
+.slider {
+  position: relative;
+  width: 600px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slide {
+  width: 100%;
+  display: none;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5); /* transparan hitam */
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 20px;
+  transition: background 0.3s, transform 0.2s;
+  z-index: 10;
+}
+
+.prev {
+  left: 15px; /* tombol kiri */
+}
+
+.next {
+  right: 15px; /* tombol kanan */
+}
+
+.prev:hover, .next:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1); /* efek membesar saat hover */
+}
+
+/* ========== CIRCLE SECTION ========== */
+.circle-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.circle-container {
+  text-align: center;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-size: contain;   /* gambar fit */
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid #FFD54F;
+}
+
+/* Foto beda tiap circle */
+.circle-1 {
+  background-image: url('ss.png');  /* contoh foto 1 */
+}
+
+.circle-2 {
+  background-image: url('comifuro.png');  /* contoh foto 2 */
+}
+
+.circle-3 {
+  background-image: url('cocoma.jpg');  /* contoh foto 3 */
+}
+
+.circle-4 {
+  background-image: url('bemfmipaunud.jpg');  /* contoh foto 4 */
+}
+
+.circle-5 {
+  background-image: url('unud.png');  /* contoh foto 5 */
+}
+
+
+
+.circle-container {
+  display: flex;
+  align-items: center;   /* vertikal tengah */
+  gap: 10px;             /* jarak antara circle & teks */
+}
+
+/* ========== KOTAK FOTO ========== */
+.kotak-foto {
+  width: 1366px;
+  max-width: 100%;
+  height: 578px;
+  border: 2px dashed #FFD54F;
+  background-color: #FAFAFA;
+}
+
+/* ========== BALIK KE ATAS ========== */
+#backToTop {
+  display: block;
+  opacity: 0.3;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 9999;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #FFD54F;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+  transition: opacity 0.3s ease;
+}
+
+#backToTop:hover {
+  opacity: 1;
+  background-color: #FFC107;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav a {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .slider {
+    width: 100%;
+    height: auto;
+  }
+
+  .slide {
+    position: relative;
+  }
+
+  form {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .kotak-foto {
+    height: auto;
+  }
+}
+
+h2 {
+  text-align: center;
+  color: #5D4037;
+  margin-bottom: 40px;
+}
+
+#project {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.section-title {
+  text-align: center;
+  color: #5D4037;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  justify-content: center; /* center horizontal */
+
+  /* Kotaknya */
+  color: #5D4037;
+  font-size: 2rem;
+  background-color: #f4f1ed;
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: 2px solid #d7ccc8;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 2rem;
+}
+
+.project-header .logo {
+  height: 40px;
+}
+
+.project-subtitle {
+  margin: 0;
+  color: #5D4037;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.project {
+  margin-bottom: 2.5rem;
+}
+
+.project-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.project h3 {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.project p {
+  margin: 0.3rem 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+.flowchart {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flowchart .step {
+  background: #f3f3f3;
+  padding: 8px 15px;
+  border-radius: 6px;
+  margin: 5px 0;
+  text-align: center;
+  width: fit-content;
+  max-width: 90%;
+}
+
+.flowchart .arrow {
+  font-size: 1.5rem;
+  color: #5D4037;
+}
+
+
+/* Main Content */
+#mainContent {
+  transition: margin-left 0.3s ease, transform 0.3s ease;
+}
+
+/*NAVIGASI BAR*/
+/* Top Navbar (default untuk desktop) */
+.top-navbar {
+  display: block;
+  background-color: #FAFAFA; 
+  padding: 12px;
+  text-align: center;
+}
+
+.top-navbar a {
+  margin: 0 8px;
+  padding: 8px 16px;
+  display: inline-block;
+  text-decoration: none;
+  color: #5D4037;
+  font-weight: bold;
+  border: 2px solid #5D4037;
+  border-radius: 6px;
+  background-color: #FAFAFA;
+  transition: all 0.3s ease;
+}
+
+.top-navbar a:hover {
+  background-color: #5D4037;
+  color: #FFD54F;
+}
+
+/* Versi HP (layar kecil) */
+@media (max-width: 600px) {
+  .top-navbar {
+    padding: 8px;
+  }
+
+  .top-navbar a {
+    margin: 0 4px;
+    padding: 6px 10px;  /* lebih kecil */
+    font-size: 0.8rem;  /* kecil biar muat */
+  }
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+  .sidebar.active ~ .content {
+    margin-left: 0;
+  }
+
+  .top-navbar {
+    display: block;
+  }
+
+  .sidebar-active #mainContent {
+    margin-left: 0;
+    transform: scale(1);
+  }
+}
+
+/* Section Hobi */
+#hobi {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem 1rem;
+  background: #fff8dc; /* kuning lembut */
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Judul utama */
+#hobi h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #5D4037; /* biru elegan */
+}
+
+/* Setiap item hobi */
+.hobi-item {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Judul hobi */
+.hobi-item h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #5D4037; /* ungu highlight */
+}
+
+/* Deskripsi */
+.hobi-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #5D4037;
+}
+
+/* Tombol Tab */
+.tab-buttons {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+  background: #f1f1f1;
+  cursor: pointer;
+  border-radius: 6px 6px 0 0;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.tab-btn:hover {
+  background: #e0e0e0;
+}
+
+.tab-btn.active {
+  background: #4f46e5;
+  color: white;
+}
+
+/* Isi Tab */
+.tab-content {
+  display: none;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 0 6px 6px 6px;
+  background: #fff;
+  text-align: left;
+}
+
+.tab-content.active {
+  display: block;
+}
+
